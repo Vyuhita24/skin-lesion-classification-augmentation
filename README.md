@@ -4,7 +4,7 @@
 ![PyTorch](https://img.shields.io/badge/PyTorch-DeepLearning-red)
 ![Status](https://img.shields.io/badge/Status-Completed-brightgreen)
 
-Deep learning pipeline for skin lesion classification, improving minority class detection using CLIP-filtered synthetic data (82.97% to 86.03% accuracy).
+**Improves skin lesion classification by enhancing minority class learning using CLIP-filtered synthetic data (82.9% -> 86.0% accuracy).**
 
 ## Overview
 
@@ -29,6 +29,28 @@ This project focuses on improving model performance for underrepresented classes
 ## Experimental Insight
 
 Initial CLIP filtering with a high threshold rejected most synthetic images, revealing a domain gap between generated and real medical images. Adjusting the threshold to 0.70 balanced quality and quantity, improving model performance.
+
+## Key Insight
+
+Naive synthetic data augmentation is not sufficient for medical datasets.
+
+We observed that:
+
+- High-quality filtering is critical.
+- CLIP-based similarity helps retain meaningful samples.
+- Proper balance between real and synthetic data improves generalization.
+
+## Pipeline
+
+```text
+Real Data -> Train -> Weak minority performance
+        |
+        v
+Synthetic Data -> CLIP Filter -> Add to training
+        |
+        v
+Final Model -> Improved minority detection + Grad-CAM validation
+```
 
 ## Approach
 
