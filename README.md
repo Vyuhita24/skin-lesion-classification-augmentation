@@ -1,14 +1,14 @@
-﻿# Skin Lesion Classification with Generative AI Augmentation
+# Skin Lesion Classification with Generative AI Augmentation
 
 ![Python](https://img.shields.io/badge/Python-3.10-blue)
 ![PyTorch](https://img.shields.io/badge/PyTorch-DeepLearning-red)
 ![Status](https://img.shields.io/badge/Status-Completed-brightgreen)
 
-Deep learning pipeline for skin lesion classification with generative data augmentation, improving accuracy from 82.97% to 86.03% using CLIP-filtered synthetic data.
+Deep learning pipeline for skin lesion classification, improving minority class detection using CLIP-filtered synthetic data (82.97% to 86.03% accuracy).
 
 ## Overview
 
-This project explores how generative augmentation can improve skin lesion classification when the dataset is heavily imbalanced. The pipeline trains an EfficientNet-B0 classifier, generates synthetic samples for minority lesion classes with Stable Diffusion, filters generated images with CLIP similarity, and evaluates the final model with classification metrics and Grad-CAM explainability.
+This project builds a generative augmentation pipeline to improve skin lesion classification when the dataset is heavily imbalanced. The pipeline trains an EfficientNet-B0 classifier, generates synthetic samples for minority lesion classes with Stable Diffusion, filters generated images with CLIP similarity, and evaluates the final model with classification metrics and Grad-CAM explainability.
 
 ## Problem
 
@@ -19,6 +19,16 @@ The HAM10000 dataset contains seven lesion categories, but the class distributio
 Accurate detection of rare skin conditions like melanoma is critical in medical diagnosis.
 
 This project focuses on improving model performance for underrepresented classes, which are often the most clinically important.
+
+## What Makes This Project Different
+
+- Uses generative models (Stable Diffusion) specifically for minority class augmentation.
+- Introduces CLIP-based filtering to improve synthetic data quality before training.
+- Demonstrates that filtering matters: synthetic data is most useful when low-quality generated samples are removed.
+
+## Experimental Insight
+
+Initial CLIP filtering with a high threshold rejected most synthetic images, revealing a domain gap between generated and real medical images. Adjusting the threshold to 0.70 balanced quality and quantity, improving model performance.
 
 ## Approach
 
