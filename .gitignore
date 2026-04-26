@@ -1,0 +1,9 @@
+data/
+models/
+wandb/
+*.pth
+*.pt
+*.ckpt
+*.zip
+__pycache__/
+.ipynb_checkpoints/

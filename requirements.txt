@@ -1,0 +1,15 @@
+torch
+torchvision
+scikit-learn
+matplotlib
+opencv-python
+pillow
+tqdm
+diffusers
+transformers
+accelerate
+pytorch-grad-cam
+pandas
+numpy
+seaborn
+wandb
